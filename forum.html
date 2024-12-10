@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="quiz.js" defer></script>
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo">
+        </div>
+        <h1 class="jalTtitle">Jal Saanjeevni</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="pixelify-sans-navbar">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar">Forum and Quiz</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar">Contact</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar">Gallery</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar">Workshops</a></li> <!-- New page link -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2 class="section-heading">Community Forum and Quiz</h2>
+                <p>Join the conversation and share your knowledge on water-efficient techniques. Connect with experts and other community members to discuss challenges, solutions, and best practices.</p>
+                
+                <div class="forum-categories">
+                    <div class="category">
+                        <h3>General Discussions</h3>
+                        <p>Talk about anything related to water conservation and sustainability.</p>
+                        <button onclick="window.location.href='general-forum.html'">Enter Forum</button>
+                    </div>
+
+                    <div class="category">
+                        <h3>Agriculture Techniques</h3>
+                        <p>Discuss water-saving techniques specifically for agricultural practices.</p>
+                        <button onclick="window.location.href='agriculture-forum.html'">Enter Forum</button>
+                    </div>
+
+                    <div class="category">
+                        <h3>Urban Water Management</h3>
+                        <p>Share insights and solutions for water efficiency in urban settings.</p>
+                        <button onclick="window.location.href='urban-forum.html'">Enter Forum</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="quiz-section">
+            <div class="container">
+                <h3>Test Your Knowledge on Water Conservation!</h3>
+                <form id="quiz-form">
+                    <div class="question">
+                        <h4>1. What is the main purpose of water conservation?</h4>
+                        <label><input type="radio" name="q1" value="a"> To save water for future use</label>
+                        <label><input type="radio" name="q1" value="b"> To use water faster</label>
+                        <label><input type="radio" name="q1" value="c"> To waste water</label>
+                    </div>
+                    <div class="question">
+                        <h4>2. Which of the following is a water-saving tip?</h4>
+                        <label><input type="radio" name="q2" value="a"> Taking long showers</label>
+                        <label><input type="radio" name="q2" value="b"> Fixing leaks immediately</label>
+                        <label><input type="radio" name="q2" value="c"> Leaving the tap running</label>
+                    </div>
+                  
+                    <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+                </form>
+                <div id="quiz-results" style="display:none;">
+                    <h3>Quiz Results:</h3>
+                    <p id="score"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</p>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Workshops and Webinars</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo">
+        </div>
+        <h1 class="jalTtitle">Jal Saanjevni</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="pixelify-sans-navbar">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar">Forum and Quiz</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar">Contact</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar">Gallery</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar">Workshops</a></li> <!-- New page link -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2 class="section-heading">Virtual Workshops and Webinars</h2>
+                <p>Join our expert-led virtual workshops and webinars to learn innovative water conservation techniques.</p>
+
+                <div class="workshop-list">
+                    <div class="workshop">
+                        <h3>Upcoming Workshop: Efficient Water Use in Agriculture</h3>
+                        <p>Date: 15th September 2024</p>
+                        <p>Expert: Dr. A. Sharma</p>
+                        <button onclick="register()">Register Now</button>
+                    </div>
+                    <div class="workshop">
+                        <h3>Webinar: Water Conservation in Urban Areas</h3>
+                        <p>Date: 20th September 2024</p>
+                        <p>Expert: Ms. R. Gupta</p>
+                        <button onclick="register()">Register Now</button>
+                    </div>
+                    <!-- Add more workshops/webinars here -->
+                </div>
+
+                <!-- New Volunteer and Event Sign-Up Section -->
+                <div class="volunteer-signup">
+                    <h2 class="section-heading">Volunteer and Event Sign-Up</h2>
+                    <p>Get involved in local water conservation events, clean-up drives, or volunteer opportunities. Sign up below!</p>
+
+                    <form class="signup-form" action="submit_volunteer.php" method="POST">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="event">Event/Opportunity:</label>
+                        <select id="event" name="event">
+                            <option value="cleanup_drive">Waterbody Cleanup Drive</option>
+                            <option value="tree_plantation">Tree Plantation Drive</option>
+                            <option value="awareness_campaign">Water Conservation Awareness Campaign</option>
+                        </select>
+
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</p>
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </footer>
+
+    <script>
+        function register() {
+            alert("Thank you for registering! We will send you more details via email.");
+        }
+    </script>
+</body>
+</html>

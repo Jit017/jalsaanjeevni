@@ -1,0 +1,27 @@
+{
+  "name": "jalwebsite-main",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Jal Sanjeevni Website Project",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "keywords": ["water conservation", "vite", "react", "typescript"],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.2"
+  }
+}

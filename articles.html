@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo">
+        </div>
+        <h1 class="jalTtitle">Welcome to Jal Sanjeevni</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="pixelify-sans-navbar">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar">Forum and Quiz</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar">Contact</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar">Gallery</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar">Workshops</a></li>
+                <li><a href="water-conservation-challenges.html" class="pixelify-sans-navbar">Challenges</a></li>
+                <li><a href="profile.html" class="pixelify-sans-navbar">Profile</a></li>
+                <li><a href="course.html" class="pixelify-sans-navbar">Course</a></li>
+                <li><a href="articles.html" class="pixelify-sans-navbar">Article</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Articles Section -->
+    <section>
+        <div class="container">
+            
+            <div class="articles-flexbox">
+                <!-- Articles will be dynamically loaded here -->
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="section-heading">Explore Our Latest Articles</h2>
+            <div class="articles-flexbox">
+                <!-- Article Card 1 -->
+                <div class="article">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image">
+                    <h3>Article Title 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+
+                <!-- Article Card 2 -->
+                <div class="article">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image">
+                    <h3>Article Title 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+
+                <!-- Article Card 3 -->
+                <div class="article">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image">
+                    <h3>Article Title 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+    </section>
+
+    <!-- Add Article Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-heading">Add a New Article</h2>
+            <form id="add-article-form">
+                <label for="article-title">Title</label>
+                <input type="text" id="article-title" placeholder="Enter article title" required>
+
+                <label for="article-content">Content</label>
+                <textarea id="article-content" placeholder="Enter article content" required></textarea>
+
+                <label for="article-image-url">Image URL</label>
+                <input type="text" id="article-image-url" placeholder="Enter image URL" required>
+
+                <button type="submit">Add Article</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Jal Sanjeevni. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const articlesContainer = document.querySelector('.articles-flexbox');
+        const addArticleForm = document.getElementById('add-article-form');
+
+        // Fetch and display articles from the backend
+        function fetchArticles() {
+            fetch('http://127.0.0.1:8000/articles')
+                .then(response => response.json())
+                .then(articles => {
+                    articlesContainer.innerHTML = ''; // Clear existing content
+                    articles.forEach(article => {
+                        const articleHTML = `
+                            <div class="article">
+                                <img src="${article.image_url}" alt="Article Image">
+                                <h3>${article.title}</h3>
+                                <p>${article.content.substring(0, 100)}...</p>
+                                <button class="read-more-btn">Read More</button>
+                            </div>`;
+                        articlesContainer.innerHTML += articleHTML;
+                    });
+                })
+                .catch(error => console.error('Error fetching articles:', error));
+        }
+
+        // Handle the Add Article form submission
+        addArticleForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const title = document.getElementById('article-title').value;
+            const content = document.getElementById('article-content').value;
+            const image_url = document.getElementById('article-image-url').value;
+
+            const newArticle = { title, content, image_url };
+
+            // Send the new article to the backend
+            fetch('http://127.0.0.1:8000/articles', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newArticle)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        fetchArticles(); // Refresh articles after adding
+                        addArticleForm.reset(); // Clear the form
+                    } else {
+                        console.error('Error adding article:', response.statusText);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        // Initial fetch of articles
+        fetchArticles();
+    </script>
+</body>
+</html>
